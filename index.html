@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <meta http-equiv="refresh" content="60"> <!--Refrescar la pagina cada 60 segundos-->
+    <title>Calculadora Edad</title>
+    
+    <!--fonts.google.com-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet"> 
+</head>
+<body>  
+    <script src="funcion.js"></script>
+    <div class="container">
+        <div class="base">
+            <h4>Momento Actual</h4>
+            <p id="fecha"></p>
+            <script>
+                var fecha = new Date();
+                var dia = fecha.getDate();
+                var mes = fecha.getMonth()+1;
+                var anio = fecha.getFullYear();
+                var hora = fecha.getHours();
+                var minutos = fecha.getMinutes();
+                var segundos = fecha.getSeconds();
+                if(minutos<10){
+                    document.getElementById("fecha").innerHTML = dia+"/"+mes+"/"+anio+" - "+hora+":0"+minutos;
+                }
+                else{
+                    document.getElementById("fecha").innerHTML = dia+"/"+mes+"/"+anio+" - "+hora+":"+minutos;
+                }
+            </script>
+            
+        </div>
+    </div>
+    <div class="container">  
+        <form>  
+                <div class="base">  
+                    <div class="enter">  
+                        <h4>Calculadora de Edad</h4>  
+                    </div>  
+                    <div class="block">  
+                        <p class="title">Día</p>  
+                        <input type="text" name="date" id="date" placeholder="dd" required="true" minlength="1" maxlength="2" />  
+                    </div>  
+                    <div class="block">  
+                        <p class="title">Mes</p>  
+                        <input type="text" name="month" id="month" placeholder="mm" required="true" minlength="1" maxlength="2" />  
+                    </div>  
+                    <div class="block">  
+                        <p class="title">Año</p>  
+                        <input type="text" name="year" id="year" placeholder="yyyy" required="true" minlength="4" maxlength="4" />  
+                    </div>  
+                </div>  
+            <div class="base">  
+                <div class="enter">  
+                <input type="button" name="submit" value="Calcular" onclick="age()" />  
+            </div>  
+        </div>  
+        <div id="age"></div>  
+            </form>  
+        </div>  
+        <footer>
+            <h5>@sebasdeharbe. 2022.</h5>
+        </footer>
+    </body>  
+</html>
